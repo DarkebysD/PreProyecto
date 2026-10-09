@@ -33,7 +33,7 @@ def test_ingreso_credenciales(driver):
     time.sleep(2)
 
 #Validacion de ingreso exitoso
-def test_validacion_ingreso(driver, wait):
+def test_validacion_ingreso(driver):
     wait = WebDriverWait(driver, 10)
     if wait.until(EC.presence_of_element_located((By.CLASS_NAME, "inventory_list"))):
         print("Ingreso exitoso")
