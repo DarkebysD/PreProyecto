@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="module")
 def driver():
     driver = webdriver.Edge()
     driver.get("https://www.saucedemo.com/")
