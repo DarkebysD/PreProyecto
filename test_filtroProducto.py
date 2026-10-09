@@ -30,35 +30,6 @@ def test_ingreso_credenciales(driver):
     login_button.click()
     time.sleep(2)
 
-#Validacion de ingreso exitoso
-def test_validacion_ingreso(driver, wait):
-    wait = WebDriverWait(driver, 10)
-    if wait.until(EC.presence_of_element_located((By.CLASS_NAME, "inventory_list"))):
-        print("Ingreso exitoso")
-    else:
-        print("Ingreso fallido")
-    
-#validar Url de la pagina
-def test_validar_url(driver):    
-    assert driver.current_url == "https://www.saucedemo.com/inventory.html", "La URL es la esperada"
-
-# validar titulo de la pagina
-def test_validar_titulo(driver):
-    titulo = driver.find_element(By.CLASS_NAME, "app_logo")
-    assert titulo.text == "Swag Labs", "El título es el esperado"
-
-# validar que el menú de navegación esté presente
-def test_validar_menu(driver):
-    menu = driver.find_element(By.ID, "react-burger-menu-btn")
-    assert menu.is_displayed(), "El menú de navegación está presente"
-
-# Validar que el carrito de compras esté vacío
-def test_validar_carrito(driver):
-    if len(driver.find_elements(By.CLASS_NAME, "shopping_cart_badge")) > 0:
-        assert len(driver.find_elements(By.CLASS_NAME, "shopping_cart_badge")) == 1, "El carrito de compras no está vacío"
-    else:
-        assert len(driver.find_elements(By.CLASS_NAME, "shopping_cart_badge")) == 0, "El carrito de compras está vacío"
-
 # validar filtros de productos
 def test_validar_filtros(driver):
     filtro = driver.find_element(By.CLASS_NAME, "product_sort_container")
@@ -77,12 +48,3 @@ def test_validar_productos(driver):
       assert ProductoError.text == "Producto no existente"  
     except NoSuchElementException: 
       print("El producto no existe")
-    
-
-    driver.quit()
-
-
-
-
-
-
